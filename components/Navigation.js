@@ -11,9 +11,13 @@ const Navigation = ({ blok }) => {
   useEffect(() => {
     const linkItem = targetNav.current.querySelectorAll("a");
     linkItem.forEach((li) => {
-      li.addEventListener("click", () => {
-        targetBtn.current.click();
-      });
+      if (typeof window !== "undefined") {
+        if (window.screen.width < 767) {
+          li.addEventListener("click", () => {
+            targetBtn.current.click();
+          });
+        }
+      }
     });
   }, []);
 
@@ -74,7 +78,10 @@ const Navigation = ({ blok }) => {
             id="navbar-collapse-with-animation"
             className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
           >
-            <div ref={targetNav} className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:pl-7">
+            <div
+              ref={targetNav}
+              className="flex flex-col gap-y-4 gap-x-0 mt-5 md:flex-row md:items-center md:justify-end md:gap-y-0 md:gap-x-7 md:mt-0 md:pl-7"
+            >
               {blok?.header_menu.map((nestedBlok) => (
                 <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
               ))}
