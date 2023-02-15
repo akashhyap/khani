@@ -1,4 +1,5 @@
 import BlogTeaser from "./BlogTeaser";
+import BlogTeaserLayout from "./BlogTeaserLayout";
 import {
   getStoryblokApi,
   StoryblokComponent,
@@ -26,7 +27,7 @@ const Breed = ({ blok }) => {
       {blok?.content.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-14 mx-auto max-w-7xl px-5">
+      <BlogTeaserLayout>
         {blog[0] &&
           blog.map((article) => {
             // console.log("breed", article);
@@ -38,7 +39,7 @@ const Breed = ({ blok }) => {
               />
             );
           })}
-      </div>
+      </BlogTeaserLayout>
     </>
   );
 };

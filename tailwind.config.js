@@ -11,7 +11,11 @@ module.exports = {
       poppins: '"Poppins", sans-serif',
       merriweather: '"Merriweather", sans-serif',
     },
-    extend: {},
+    extend: {
+      colors: {
+        "saffron": "#f15b26",
+      },
+    },
   },
   plugins: [
     require('preline/plugin'),

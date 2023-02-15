@@ -23,7 +23,7 @@ const Menu = ({ blok }) => {
       <a
         className={classNames(
           cachedUrl == routerUrl
-            ? "bg-gray-900 text-white"
+            ? "text-black rounded-none transition duration-500 ease-in-out relative after:absolute after:block after:right-3 after:left-3 after:bottom-0  after:border-b-2 after:border-saffron"
             : "text-black hover:bg-gray-200 hover:text-black",
           "block px-3 py-2 rounded-lg text-base"
         )}

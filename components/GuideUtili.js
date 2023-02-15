@@ -1,4 +1,5 @@
 import BlogTeaser from "./BlogTeaser";
+import BlogTeaserLayout from "./BlogTeaserLayout";
 import {
   getStoryblokApi,
   StoryblokComponent,
@@ -7,6 +8,7 @@ import {
 import { render } from "storyblok-rich-text-react-renderer";
 
 import { useState, useEffect } from "react";
+
 
 const GuideUtili = ({ blok }) => {
   const [blog, setBlog] = useState([]);
@@ -26,7 +28,7 @@ const GuideUtili = ({ blok }) => {
       {blok?.content.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-14 mx-auto max-w-7xl px-5">
+      <BlogTeaserLayout>
         {blog[0] &&
           blog.map((article) => {
             // console.log("article", article);
@@ -38,7 +40,7 @@ const GuideUtili = ({ blok }) => {
               />
             );
           })}
-      </div>
+      </BlogTeaserLayout>
     </>
   );
 };
