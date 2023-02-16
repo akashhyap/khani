@@ -16,7 +16,7 @@ const ArticleHeader = ({ blok }) => {
         <div className="w-full md:w-7/12 m-auto text-md md:text-lg px-7">
           <div className="pb-8">
             <ol
-              class="flex items-center whitespace-nowrap min-w-0"
+              className="flex items-center whitespace-nowrap min-w-0"
               aria-label="Breadcrumb"
             >
               <li className="text-sm group">
@@ -58,7 +58,7 @@ const ArticleHeader = ({ blok }) => {
                 </Link>
               </li>
               <li className="text-sm group">
-                <Link href={`${prevLink}/`} legacyBehavior>
+                <Link href={`/${prevLink}/`} legacyBehavior>
                   <a className="flex items-center underline underline-offset-4 text-gray-200 group-hover:text-saffron capitalize">
                     {prevLink}
                     <svg
@@ -80,7 +80,7 @@ const ArticleHeader = ({ blok }) => {
                 </Link>
               </li>
               <li
-                className="text-sm text-gray-800 truncate dark:text-gray-200"
+                className="text-sm text-gray-200 truncate"
                 aria-current="page"
               >
                 {blok.title}

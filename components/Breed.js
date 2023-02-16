@@ -27,7 +27,7 @@ const Breed = ({ blok }) => {
       {blok?.content.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      <BlogTeaserLayout>
+      <BlogTeaserLayout blok={blok}>
         {blog[0] &&
           blog.map((article) => {
             // console.log("breed", article);

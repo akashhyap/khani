@@ -28,7 +28,7 @@ const GuideUtili = ({ blok }) => {
       {blok?.content.map((nestedBlok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-      <BlogTeaserLayout>
+      <BlogTeaserLayout blok={blok}>
         {blog[0] &&
           blog.map((article) => {
             // console.log("article", article);
