@@ -2,8 +2,10 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import ArticleHeader from "./ArticleHeader";
 import ArticleBody from "./ArticleBody";
 
+
 const Blog = ({ blok }) => {
-  // console.log(blok);
+  // console.log("blog", blok);
+
   return (
     <>
       <ArticleHeader blok={blok} />

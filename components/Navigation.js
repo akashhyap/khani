@@ -23,7 +23,7 @@ const Navigation = ({ blok }) => {
 
   return (
     <div
-      className="relative bg-white border-b-2 border-gray-100 transition ease-in-out duration-150"
+      className="relative bg-white border-b-2 border-gray-100"
       {...storyblokEditable(blok)}
     >
       <header className="flex flex-wrap md:justify-start md:flex-nowrap z-50 w-full py-4 px-5">

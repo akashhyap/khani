@@ -3,7 +3,7 @@ import Link from "next/link";
 import { render } from "storyblok-rich-text-react-renderer";
 
 const Footer = ({ blok }) => {
-  console.log("footer", blok);
+  // console.log("footer", blok);
   return (
     <>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:w-10/12 mx-auto py-10 px-4 sm:px-6 lg:px-8">
