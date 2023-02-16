@@ -26,6 +26,11 @@ h1 {
 
 .blog_teaser .pseudo_blok {
   display: block;
+  font-weight: 600;
+  color: #000;
+}
+.blog_teaser .pseudo_blok + span {
+  display: none;
 }
 .blog_teaser .meta_info span {
  font-size: 0.85rem;
