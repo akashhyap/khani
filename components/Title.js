@@ -2,7 +2,7 @@
     // console.log("Title", blok);
  
     return (
-      <h1 className="text-5xl font-bold tracking-tight my-5">
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white font-semibold tracking-tight pt-5 mb-7 leading-tight">
         {blok.title}
       </h1>
     );

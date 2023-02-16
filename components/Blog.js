@@ -1,13 +1,14 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
+import ArticleHeader from "./ArticleHeader";
+import ArticleBody from "./ArticleBody";
 
 const Blog = ({ blok }) => {
-  // console.log("blog", blok);
+  // console.log(blok);
   return (
-    <main {...storyblokEditable(blok)} className="w-full md:w-7/12 m-auto text-md md:text-lg mt-10">
-      {blok.body.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
-    </main>
+    <>
+      <ArticleHeader blok={blok} />
+      <ArticleBody blok={blok} />
+    </>
   );
 };
 export default Blog;

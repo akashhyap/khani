@@ -12,17 +12,17 @@ const BlogAuthorInfo = ({ blok }) => {
   let date = !isPageComponent && new Date(blok.date.split(" ")[0]);
 
   return (
-    <div className="flex items-center my-5 meta_info">
-      <figure className="mr-2">
+    <div className="flex items-center my-9 meta_info">
+      <figure className="mr-2 basis-1/4 md:basis-auto">
         {blok.image.filename && (
           <img
-            className="w-[25px] h-[25px] object-center rounded-full author_img"
+            className="w-[46px] h-[46px] object-center rounded-full author_img"
             alt={blok.image.alt}
             src={`${blok.image.filename}/m/`}
           />
         )}
       </figure>
-      <div className="text-base text-gray-700 hover:text-black font-light">
+      <div className="text-base text-white hover:text-gray-100 font-light">
         <span className="mr-1 pseudo_blok">{blok.authorName}</span>
         <span className="mr-1">{blok.lastUpdated}</span>
         {blok.date && (

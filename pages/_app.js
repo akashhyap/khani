@@ -15,6 +15,9 @@ import BlogAuthorInfo from "../components/BlogAuthorInfo";
 import FeaturedImage from "../components/FeaturedImage";
 import Title from "../components/Title";
 import Content from "../components/Content";
+import FooterColumn from "../components/FooterColumn";
+import FooterMenu from "../components/FooterMenu";
+
 import { useEffect } from "react";
 
 const components = {
@@ -29,6 +32,8 @@ const components = {
   breed: Breed,
   title: Title,
   content: Content,
+  footerColumn: FooterColumn,
+  footerMenu: FooterMenu,
   blogAuthorInfo: BlogAuthorInfo,
   featuredImage: FeaturedImage,
 };
