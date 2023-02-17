@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 const ArticleHeader = ({ blok }) => {
-  console.log("article", blok);
+  // console.log("article", blok);
 
   const router = useRouter();
   let prevLink = router.asPath.trim("").split("/").slice(1)[0];
@@ -12,7 +12,7 @@ const ArticleHeader = ({ blok }) => {
 
   return (
     <>
-      <div className="relative pt-5 pb-12 md:py-16 bg-gradient-to-r from-green-700 to-green-900">
+      <div className="relative pt-5 pb-12 md:py-16 bg-gradient-to-r bg-poppy-900">
         <div className="w-full md:w-7/12 m-auto text-md md:text-lg px-7">
           <div className="pb-8">
             <ol

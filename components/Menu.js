@@ -23,8 +23,8 @@ const Menu = ({ blok }) => {
       <a
         className={classNames(
           cachedUrl == routerUrl
-            ? "text-black rounded-none transition duration-500 ease-in-out relative after:absolute after:block after:right-3 after:left-3 after:bottom-0  after:border-b-2 after:border-saffron"
-            : "text-black hover:bg-gray-200 hover:text-black",
+            ? "text-eerie rounded-none transition duration-500 ease-in-out relative after:absolute after:block after:right-3 after:left-3 after:bottom-0  after:border-b-2 after:border-poppy-900"
+            : "text-eerie hover:bg-gray-200 hover:text-eerie",
           "block px-3 py-2 rounded-lg text-base"
         )}
         aria-current={cachedUrl == routerUrl ? "page" : undefined}

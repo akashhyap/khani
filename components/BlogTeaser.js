@@ -11,9 +11,9 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 const BlogTeaser = ({ article, slug }) => {
   // console.log("article", article.body.component);
-  const isPageComponent = article.component == "page";
+  const isPageComponent = article?.component == "page";
 
-  let date = !isPageComponent && new Date(article.date.split(" ")[0]);
+  let date = !isPageComponent && new Date(article?.date.split(" ")[0]);
 
   return (
     <>
@@ -24,23 +24,21 @@ const BlogTeaser = ({ article, slug }) => {
               <a>
                 <img
                   className="w-full h-full absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                  src={article?.image.filename}
+                  src={`${article?.image.filename}/m/`}
                   alt="blog"
                 />
               </a>
             </Link>
           </figure>
 
-          <h2 className="font-poppins mb-5 mt-6 text-2xl font-semibold leading-8 tracking-tighter">
+          <h2 className="font-poppins mb-5 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter">
             <Link href={`/${slug}`} legacyBehavior>
-              <a>{article.title}</a>
+              <a>{article?.title}</a>
             </Link>
           </h2>
-          <div className="text-base leading-7 mb-8">
-            <p className="pb-0">{article.metatags.description}</p>
-          </div>
+         
           <div className="text-base">
-            {article.body.map((nestedBlok) => {
+            {article?.body.map((nestedBlok) => {
               const isBlogAuthorInfo = nestedBlok.component == "blogAuthorInfo";
               let img = isBlogAuthorInfo && nestedBlok.image.filename;
               return (

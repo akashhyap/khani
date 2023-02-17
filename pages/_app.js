@@ -17,6 +17,8 @@ import Title from "../components/Title";
 import Content from "../components/Content";
 import FooterColumn from "../components/FooterColumn";
 import FooterMenu from "../components/FooterMenu";
+import FluidLayout from "../components/FluidLayout";
+import RelatedArticles from "../components/RelatedArticles";
 
 import { useEffect } from "react";
 
@@ -36,6 +38,8 @@ const components = {
   footerMenu: FooterMenu,
   blogAuthorInfo: BlogAuthorInfo,
   featuredImage: FeaturedImage,
+  fluidLayout: FluidLayout,
+  "related-articles": RelatedArticles,
 };
 
 storyblokInit({

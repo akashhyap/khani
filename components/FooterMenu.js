@@ -10,7 +10,7 @@ const FooterMenu = ({ blok }) => {
         {...storyblokEditable(blok)}
         legacyBehavior
       >
-        <a>{blok.title}</a>
+        <a className="text-white">{blok.title}</a>
       </Link>
     </li>
   );

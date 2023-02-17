@@ -4,7 +4,7 @@ const BlogTeaserLayout = ({ children, blok }) => {
   // console.log("blog teaser", blok.content[0].title);
   return (
     <>
-      <div className=" mx-auto max-w-7xl px-12 pt-8">
+      <div className="mx-auto max-w-7xl px-12 pt-8">
         <ol
           className="flex items-center whitespace-nowrap min-w-0"
           aria-label="Breadcrumb"
@@ -55,7 +55,7 @@ const BlogTeaserLayout = ({ children, blok }) => {
           </li>
         </ol>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-10 mx-auto max-w-7xl px-7">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-10 mx-auto max-w-7xl px-7 mb-16">
         {children}
       </div>
     </>

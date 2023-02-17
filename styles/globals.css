@@ -2,26 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
+
+@layer base {
+  body {
+    color: #1e2121;
+  }
+
+  body,
+  li,
+  a {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+}
+
+html {
   overflow-x: hidden;
-}
-
-body {
-  font-family: 'Merriweather', serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: 'Poppins', sans-serif;
-}
-
-h1 {
-  font-size: 40px;
 }
 
 .blog_teaser .pseudo_blok {
@@ -43,4 +42,8 @@ h1 {
 .blog_teaser .author_img {
   width: 35px;
   height: 35px;
+}
+
+.related-articles .blog_teaser {
+  background-color: #fff;
 }

@@ -4,20 +4,41 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    'node_modules/preline/dist/*.js',
+    "node_modules/preline/dist/*.js",
   ],
   theme: {
     fontFamily: {
       poppins: '"Poppins", sans-serif',
-      merriweather: '"Merriweather", sans-serif',
     },
     extend: {
       colors: {
-        "saffron": "#f15b26",
+        eerie: "#1e2121",
+        poppy: {
+          50: "rgba(219, 67, 67, 0.1)",
+          100: "rgba(219, 67, 67, 0.2)",
+          200: "rgba(219, 67, 67, 0.3)",
+          300: "rgba(219, 67, 67, 0.4)",
+          400: "rgba(219, 67, 67, 0.5)",
+          500: "rgba(219, 67, 67, 0.6)",
+          600: "rgba(219, 67, 67, 0.7)",
+          700: "rgba(219, 67, 67, 0.8)",
+          800: "rgba(219, 67, 67, 0.9)",
+          900: "rgba(219, 67, 67, 1)",
+        },
+        salmon: {
+          50: "rgba(250, 149, 151, 0.1)",
+          100: "rgba(250, 149, 151, 0.2)",
+          200: "rgba(250, 149, 151, 0.3)",
+          300: "rgba(250, 149, 151, 0.4)",
+          400: "rgba(250, 149, 151, 0.5)",
+          500: "rgba(250, 149, 151, 0.6)",
+          600: "rgba(250, 149, 151, 0.7)",
+          700: "rgba(250, 149, 151, 0.8)",
+          800: "rgba(250, 149, 151, 0.9)",
+          900: "rgba(250, 149, 151, 1)",
+        },
       },
     },
   },
-  plugins: [
-    require('preline/plugin'),
-],
-}
+  plugins: [require("preline/plugin")],
+};
