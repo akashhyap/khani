@@ -7,7 +7,7 @@ import Newsletter from "./Newsletter";
 
 
 const RelatedArticles = ({ blok }) => {
-  console.log('related articles',blok);
+  // console.log('related articles',blok);
   let bgColor = (val) => {
     switch (blok.backgroundColor) {
       case "white":
