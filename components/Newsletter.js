@@ -50,28 +50,32 @@ const Newsletter = () => {
   };
 
   return (
-    <div className="md:w-7/12 m-auto mt-8">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col w-full md:w-7/12 m-auto text-md md:text-lg bg-white px-4 py-5 sm:p-6 border shadow sm:rounded-md"
-      >
-       
-        <label className="mb-3">
-          Email:
-          <input
-            type="email"
-            name="email"
-            required
-            className="mt-1 block w-full rounded-md border py-1 px-3 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-          />
-        </label>
-       
-        <button
-          type="submit"
-          className="flex bg-poppy-800 hover:bg-poppy-900 shadow hover:shadow-lg transition-all duration-100 ease-linear rounded-md max-w-fit mx-auto text-white mb-5  px-7 py-3"
-        >
-          Submit
-        </button>
+    <div className="max-w-7xl mx-auto my-12 px-5 py-14 bg-salmon-100 rounded-2xl">
+      <h2 className="text-2xl sm:text-4xl lg:text-4xl font-semibold text-center">
+        Sign up to Our <span className="underline underline-offset-8 text-poppy-900">Newsletter</span>
+      </h2>
+      <form onSubmit={handleSubmit} className="md:w-7/12 m-auto">
+        <div class="mt-5 lg:mt-12 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
+          <div class="w-full">
+            <label for="email" class="sr-only">
+              Email
+            </label>
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              placeholder="Enter your email"
+            />
+          </div>
+          <button
+            type="submit"
+            className="flex bg-poppy-800 hover:bg-poppy-900 shadow hover:shadow-lg transition-all duration-100 ease-linear rounded-md max-w-fit mx-auto text-white px-7 py-3"
+          >
+            Subscribe
+          </button>
+        </div>
+
         {successMessage && (
           <p className="bg-blue-200 mt-4 text-center rounded-md text-base border p-2 border-dashed">
             {successMessage}

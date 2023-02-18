@@ -19,6 +19,7 @@ import FooterColumn from "../components/FooterColumn";
 import FooterMenu from "../components/FooterMenu";
 import FluidLayout from "../components/FluidLayout";
 import RelatedArticles from "../components/RelatedArticles";
+import Newsletter from "../components/Newsletter";
 
 import { useEffect } from "react";
 
@@ -40,6 +41,7 @@ const components = {
   featuredImage: FeaturedImage,
   fluidLayout: FluidLayout,
   "related-articles": RelatedArticles,
+  newsletter: Newsletter,
 };
 
 storyblokInit({

@@ -1,10 +1,6 @@
 import BlogTeaser from "./BlogTeaser";
 import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
-// import { useState, useEffect, useRef } from 'react';
-
-import Newsletter from "./Newsletter";
-
 
 const RelatedArticles = ({ blok }) => {
   // console.log('related articles',blok);
@@ -59,7 +55,6 @@ const RelatedArticles = ({ blok }) => {
         )}
       </div>
 
-      <Newsletter/>
     </div>
   );
 };
