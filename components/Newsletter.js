@@ -68,7 +68,7 @@ const Newsletter = () => {
        
         <button
           type="submit"
-          className="capitalize border border-logo-red bg-logo-red hover:bg-transparent text-white hover:text-logo-red transition-colors font-poppins text-sm px-5 py-3 mt-2 rounded-md "
+          className="flex bg-poppy-800 hover:bg-poppy-900 shadow hover:shadow-lg transition-all duration-100 ease-linear rounded-md max-w-fit mx-auto text-white mb-5  px-7 py-3"
         >
           Submit
         </button>
