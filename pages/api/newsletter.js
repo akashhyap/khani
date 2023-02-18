@@ -1,52 +1,34 @@
 const axios = require("axios");
 
-function getRequestParams(email) {
-  // get env variables
-  const API_KEY = process.env.MAILCHIMP_API_KEY;
-  const LIST_ID = process.env.MAILCHIMP_LIST_ID;
-  // mailchimp datacenter - mailchimp api keys always look like this:
-  // fe4f064432e4684878063s83121e4971-us6
-  // We need the us6 part
-  const DATACENTER = process.env.MAILCHIMP_API_KEY.split("-")[1];
-
-  const url = `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`;
-
-  // Add aditional params here. See full list of available params:
-  // https://mailchimp.com/developer/reference/lists/list-members/
-  const data = {
-    email_address: email,
-    status: "subscribed",
-  };
-
-  // Api key needs to be encoded in base 64 format
-  const base64ApiKey = Buffer.from(`anystring:${API_KEY}`).toString("base64");
-  const headers = {
-    "Content-Type": "application/json",
-    Authorization: `Basic ${base64ApiKey}`,
-  };
-
-  return {
-    url,
-    data,
-    headers,
-  };
-}
 
 module.exports = async (req, res) => {
-  const { email } = req.body;
+    const subscriber = req.body;
+    const API_KEY = process.env.MAILCHIMP_API_KEY;
+    const LIST_ID = process.env.MAILCHIMP_LIST_ID;
+    // mailchimp datacenter - mailchimp api keys always look like this:
+    // fe4f064432e4684878063s83121e4971-us6
+    // We need the us6 part
+    const DATACENTER = process.env.MAILCHIMP_API_KEY.split("-")[1];
 
-  try {
-    const { url, data, headers } = getRequestParams(email);
-
-    const response = await axios.post(url, data, { headers });
-
-    // Success
-    return res.status(201).json({ error: null });
-  } catch (error) {
-    return res.status(400).json({
-      error: `Oops, something went wrong... Send me an email at marc@trustseo.co and I'll add you to the list.`,
-    });
-
-    // Report error to Sentry or whatever
-  }
-};
+    try {
+      const { data } = await axios.get(`https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members?email=${subscriber.email_address}`, {
+        headers: {
+          'Authorization': `auth ${API_KEY}`
+        }
+      });
+  
+      if (data.members.length > 0 && data.members[0].email_address === subscriber.email_address) {
+        return res.status(400).json({ error: 'Email already exists' });
+      }
+  
+      const { data: result } = await axios.post(`https://${DATACENTER}.api.mailchimp.com/3.0/lists/${LIST_ID}/members`, subscriber, {
+        headers: {
+          'Authorization': `auth ${API_KEY}`
+        }
+      });
+  
+      res.json(result);
+    } catch (error) {
+      res.status(error.response.status).json({ error: error.response.data });
+    }
+  };
