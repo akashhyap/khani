@@ -1,5 +1,4 @@
-import BlogTeaser from "./BlogTeaser";
-import BlogTeaserLayout from "./BlogTeaserLayout";
+import BreadcrumbBlog from "./BreadcrumbBlog";
 
 import {
   getStoryblokApi,
@@ -11,6 +10,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import { useState, useEffect } from "react";
 
 const Alimentazione = ({ blok }) => {
+ 
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     const getAlimentazione = async () => {
@@ -25,22 +25,20 @@ const Alimentazione = ({ blok }) => {
   }, []);
   return (
     <>
-      {blok?.content.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
-      <BlogTeaserLayout blok={blok}>
-        {blog[0] &&
-          blog.map((article) => {
-            // console.log("all", article);
-            return (
-              <BlogTeaser
-                article={article.content}
-                slug={article.full_slug}
-                key={article.uuid}
-              />
-            );
-          })}
-      </BlogTeaserLayout>
+      {blok?.content.map((nestedBlok) => {
+        
+        const isHero = nestedBlok?.component == "heroAllBlog";
+
+        if(isHero) {
+          return (
+            <header key={nestedBlok._uid}>
+              <StoryblokComponent blok={nestedBlok} />
+              <BreadcrumbBlog blok = {nestedBlok}/>
+            </header>
+          );
+        }
+        return <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />;
+      })}
     </>
   );
 };

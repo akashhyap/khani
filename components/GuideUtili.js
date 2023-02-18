@@ -8,6 +8,7 @@ import {
 import { render } from "storyblok-rich-text-react-renderer";
 
 import { useState, useEffect } from "react";
+import BreadcrumbBlog from "./BreadcrumbBlog";
 
 
 const GuideUtili = ({ blok }) => {
@@ -25,23 +26,20 @@ const GuideUtili = ({ blok }) => {
   }, []);
   return (
     <>
-      {blok?.content.map((nestedBlok) => (
-        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-      ))}
-      <BlogTeaserLayout blok={blok}>
-        {blog[0] &&
-          blog.map((article) => {
-            // console.log("article", article);
-            return (
-              <BlogTeaser
-                article={article.content}
-                slug={article.full_slug}
-                key={article.uuid}
-              />
-            );
-          })}
-      </BlogTeaserLayout>
-    </>
+    {blok?.content.map((nestedBlok) => {
+      const isHero = nestedBlok?.component == "heroAllBlog";
+
+      if (isHero) {
+        return (
+          <header key={nestedBlok._uid}>
+            <StoryblokComponent blok={nestedBlok} />
+            <BreadcrumbBlog blok={nestedBlok} />
+          </header>
+        );
+      }
+      return <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />;
+    })}
+  </>
   );
 };
 export default GuideUtili;

@@ -10,7 +10,7 @@ const FooterMenu = ({ blok }) => {
         {...storyblokEditable(blok)}
         legacyBehavior
       >
-        <a className="text-white">{blok.title}</a>
+        <a className="text-white hover:underline underline-offset-4">{blok.title}</a>
       </Link>
     </li>
   );

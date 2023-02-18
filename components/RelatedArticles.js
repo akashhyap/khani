@@ -1,12 +1,27 @@
 import BlogTeaser from "./BlogTeaser";
 import { storyblokEditable } from "@storyblok/react";
 import Link from "next/link";
+// import { useState, useEffect, useRef } from 'react';
+
+import Newsletter from "./Newsletter";
+
 
 const RelatedArticles = ({ blok }) => {
-  // console.log("related", blok);
+  console.log('related articles',blok);
+  let bgColor = (val) => {
+    switch (blok.backgroundColor) {
+      case "white":
+        return "bg-white";
+        break;
+      case "slate":
+        return "bg-slate-100";
+        break;
+     
+    }
+  };
   return (
-    <div className="related-articles bg-slate-100 border-t-2 border-b-2 border-slate-100">
-      <div className="mx-auto max-w-7xl px-12 py-14 md:py-24">
+    <div className={`related-articles border-b-2 py-14 ${bgColor(blok.backgroundColor)}`}>
+      <div className="mx-auto max-w-7xl px-12">
         <h2 className="text-2xl sm:text-4xl lg:text-4xl font-semibold px-3 pb-7">
           {blok.title}
         </h2>
@@ -21,26 +36,30 @@ const RelatedArticles = ({ blok }) => {
             );
           })}
         </div>
-        <Link href={`/${blok.button.cached_url}`} legacyBehavior>
-          <a className="flex bg-poppy-800 hover:bg-poppy-900 shadow hover:shadow-lg transition-all duration-100 ease-linear rounded-md max-w-fit mx-auto text-white mb-5  px-7 py-3">
-            View All{" "}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6 ml-2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
-              />
-            </svg>
-          </a>
-        </Link>
+        {blok.button.cached_url && (
+          <Link href={`/${blok.button.cached_url}`} legacyBehavior>
+            <a className="flex bg-poppy-800 hover:bg-poppy-900 shadow hover:shadow-lg transition-all duration-100 ease-linear rounded-md max-w-fit mx-auto text-white mb-5  px-7 py-3">
+              View All{" "}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6 ml-2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                />
+              </svg>
+            </a>
+          </Link>
+        )}
       </div>
+
+      <Newsletter/>
     </div>
   );
 };
