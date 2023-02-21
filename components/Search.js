@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
-import searchContent from "../pages/lib/_search";
+import searchContent from "./FetchSearch";
 
 export default function Search() {
   const [searchQuery, setSearchQuery] = useState("");
