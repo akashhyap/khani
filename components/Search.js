@@ -27,7 +27,7 @@ export default function Search() {
   return (
     <>
       <form className="w-full">
-        <div className="flex md:flex-col items-center gap-2 sm:flex-row sm:gap-3">
+        <div className="flex items-center gap-2 sm:flex-row sm:gap-3">
           <div className="w-3/4 md:w-full">
             <label htmlFor="search" className="sr-only">
               Search
