@@ -10,46 +10,60 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 const BlogTeaser = ({ article, slug }) => {
-  // console.log("article", article.body.component);
-  const isPageComponent = article?.component == "page";
+  // console.log("blog teaser", article);
 
-  let date = !isPageComponent && new Date(article?.date.split(" ")[0]);
+  const isPageComponent = article?.component == "page";
+  let date = !isPageComponent && new Date(article?.date?.split(" ")[0]);
 
   return (
     <>
       {!isPageComponent && (
-        <div className="blog_teaser group hover:bg-gray-100 p-5 rounded-xl transition duration-500 ease-in-out">
-          <figure className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
-            <Link href={`/${slug}`} legacyBehavior>
-              <a>
-                <img
-                  className="w-full h-full absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                  src={`${article?.image.filename}/m/`}
-                  alt="blog"
-                />
-              </a>
-            </Link>
-          </figure>
+        <div className="blog_teaser flex flex-col group hover:bg-gray-100 p-5 rounded-xl transition duration-500 ease-in-out">
+          {article?.body.map((item) => {
+            switch (item.component) {
+              case "featuredImage":
+                return (
+                  <figure
+                    key={item._uid}
+                    className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden order-1"
+                  >
+                    <Link href={`/${slug}`} legacyBehavior>
+                      <a>
+                        <img
+                          className="w-full h-full absolute top-0 left-0 object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
+                          src={`${item.image?.filename}/m/`}
+                          alt="blog"
+                        />
+                      </a>
+                    </Link>
+                  </figure>
+                );
+                break;
 
-          <h2 className="exclude-index font-poppins mb-5 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter">
-            <Link href={`/${slug}`} legacyBehavior>
-              <a>{article?.title}</a>
-            </Link>
-          </h2>
-         
-          <div className="text-base">
-            {article?.body.map((nestedBlok) => {
-              const isBlogAuthorInfo = nestedBlok.component == "blogAuthorInfo";
-              let img = isBlogAuthorInfo && nestedBlok.image.filename;
-              return (
-                <div key={nestedBlok._uid}>
-                  {nestedBlok.component == "blogAuthorInfo" && (
-                    <StoryblokComponent blok={nestedBlok} />
-                  )}
-                </div>
-              );
-            })}
-          </div>
+              case "title":
+                return (
+                  <h2
+                    key={item._uid}
+                    className="exclude-index font-poppins mb-0 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter order-2"
+                  >
+                    <Link href={`/${slug}`} legacyBehavior>
+                      <a>{item.title}</a>
+                    </Link>
+                  </h2>
+                );
+                break;
+
+              case "blogAuthorInfo":
+                return (
+                  <div key={item._uid} className="text-base order-3">
+                    <StoryblokComponent blok={item} />
+                  </div>
+                );
+                break;
+              default:
+                break;
+            }
+          })}
         </div>
       )}
     </>

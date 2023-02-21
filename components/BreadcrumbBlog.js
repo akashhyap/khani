@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 
 const BreadcrumbBlog = ({ blok }) => {
-//   console.log("breadcrumb", blok);
+  // console.log("breadcrumb", blok);
   return (
     <ol
       className="flex items-center whitespace-nowrap  max-w-6xl m-auto py-10 px-6 xl:px-0"

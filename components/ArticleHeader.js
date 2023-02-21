@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 const ArticleHeader = ({ blok }) => {
-  // console.log("article", blok);
+  console.log("article", blok);
 
   const router = useRouter();
   let prevLink = router.asPath.trim("").split("/").slice(1)[0];
@@ -83,7 +83,7 @@ const ArticleHeader = ({ blok }) => {
                 className="text-sm text-gray-200 truncate"
                 aria-current="page"
               >
-                {blok.title}
+                {blok.body[0].title}
               </li>
             </ol>
           </div>
