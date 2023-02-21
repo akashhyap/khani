@@ -31,7 +31,7 @@ const BlogTeaser = ({ article, slug }) => {
             </Link>
           </figure>
 
-          <h2 className="font-poppins mb-5 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter">
+          <h2 className="exclude-index font-poppins mb-5 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter">
             <Link href={`/${slug}`} legacyBehavior>
               <a>{article?.title}</a>
             </Link>

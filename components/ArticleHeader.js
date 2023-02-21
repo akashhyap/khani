@@ -13,7 +13,7 @@ const ArticleHeader = ({ blok }) => {
   return (
     <>
       <div className="relative pt-5 pb-12 md:py-16 bg-gradient-to-r bg-poppy-900">
-        <div className="w-full md:w-7/12 m-auto text-md md:text-lg px-7">
+        <div className="w-full md:w-6/12 m-auto text-md md:text-lg px-7">
           <div className="pb-8">
             <ol
               className="flex items-center whitespace-nowrap min-w-0"

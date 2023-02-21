@@ -3,14 +3,18 @@ import ArticleHeader from "./ArticleHeader";
 import ArticleBody from "./ArticleBody";
 
 const FluidLayout = ({ blok }) => {
-  // console.log("fluid", blok);
+  const tableOfContent = blok.content[0]?.component === "tableOfContent";
   const containerFluid = blok.containerFluid === true;
 
   return (
-    <div className={`${containerFluid ? "md:w-full" : ""} md:w-7/12 m-auto`}>
+    <div
+      className={`fluid-layout md:w-6/12 m-auto ${
+        containerFluid ? "md:w-full" : ""
+      } ${!!tableOfContent ? "flex md:px-5 md:pb-10 layout-with-index" : ""}`}
+    >
       {blok.content.map((nestedBlok) => (
-      <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-    ))}
+        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+      ))}
     </div>
   );
 };

@@ -19,8 +19,14 @@
   }
 }
 
-html {
-  overflow-x: hidden;
+/* html {
+  scroll-behavior: smooth;
+} */
+
+@media screen and (max-width:767px) {
+  html {
+    overflow-x: hidden;
+  }
 }
 
 .blog_teaser .pseudo_blok {
@@ -46,4 +52,11 @@ html {
 
 .related-articles .blog_teaser {
   background-color: #fff;
+}
+
+@media screen and (min-width:768px) {
+  .layout-with-index .article-content {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
 }

@@ -20,6 +20,10 @@ import FooterMenu from "../components/FooterMenu";
 import FluidLayout from "../components/FluidLayout";
 import RelatedArticles from "../components/RelatedArticles";
 import Newsletter from "../components/Newsletter";
+import TableOfContent from "../components/TableOfContent";
+import HeroStyle from "../components/HeroStyle";
+import ImageOverlayCard from "../components/ImageOverlayCard";
+import CardItem from "../components/CardItem";
 
 import { useEffect } from "react";
 
@@ -42,6 +46,10 @@ const components = {
   fluidLayout: FluidLayout,
   "related-articles": RelatedArticles,
   newsletter: Newsletter,
+  tableOfContent: TableOfContent,
+  "hero-style": HeroStyle,
+  "image-overlay-card": ImageOverlayCard,
+  "card-item": CardItem,
 };
 
 storyblokInit({

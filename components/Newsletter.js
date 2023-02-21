@@ -54,17 +54,17 @@ const Newsletter = () => {
       <h2 className="text-2xl sm:text-4xl lg:text-4xl font-semibold text-center">
         Sign up to Our <span className="underline underline-offset-8 text-poppy-900">Newsletter</span>
       </h2>
-      <form onSubmit={handleSubmit} className="md:w-7/12 m-auto">
-        <div class="mt-5 lg:mt-12 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-          <div class="w-full">
-            <label for="email" class="sr-only">
+      <form onSubmit={handleSubmit} className="md:w-6/12 m-auto">
+        <div className="mt-5 lg:mt-12 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
+          <div className="w-full">
+            <label htmlFor="email" className="sr-only">
               Email
             </label>
             <input
               type="text"
               id="email"
               name="email"
-              class="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500"
+              className="py-3 px-4 block w-full border-gray-200 shadow-sm rounded-md focus:z-10 focus:border-blue-500 focus:ring-blue-500"
               placeholder="Enter your email"
             />
           </div>

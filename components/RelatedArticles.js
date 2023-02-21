@@ -16,9 +16,9 @@ const RelatedArticles = ({ blok }) => {
     }
   };
   return (
-    <div className={`related-articles border-b-2 py-14 ${bgColor(blok.backgroundColor)}`}>
-      <div className="mx-auto max-w-7xl px-12">
-        <h2 className="text-2xl sm:text-4xl lg:text-4xl font-semibold px-3 pb-7">
+    <div className={`related-articles py-3 md:py-14 ${bgColor(blok.backgroundColor)}`}>
+      <div className="mx-auto max-w-7xl px-3 md:px-12">
+        <h2 className="exclude-index text-2xl sm:text-4xl lg:text-4xl font-semibold px-3 pb-7">
           {blok.title}
         </h2>
         <div className="grid w-full grid-cols-1 gap-6 mx-auto lg:grid-cols-3 mb-16">
