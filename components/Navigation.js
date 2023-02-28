@@ -43,7 +43,7 @@ const Navigation = ({ blok }) => {
                 <img
                   src={blok?.logo.filename}
                   alt="Khani"
-                  className="h-full object-cover basis-24 w-2/5 mx-auto"
+                  className="h-full object-cover basis-24 w-2/5 mx-auto md:ml-0"
                 />
               </a>
             </Link>

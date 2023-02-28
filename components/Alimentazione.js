@@ -5,12 +5,13 @@ import {
   StoryblokComponent,
   storyblokEditable,
 } from "@storyblok/react";
+// import HorizontalCardItem from "./HorizontalCardItem";
+import BlogTeaser from "./BlogTeaser";
 import { render } from "storyblok-rich-text-react-renderer";
 
 import { useState, useEffect } from "react";
 
 const Alimentazione = ({ blok }) => {
- 
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     const getAlimentazione = async () => {
@@ -26,19 +27,38 @@ const Alimentazione = ({ blok }) => {
   return (
     <>
       {blok?.content.map((nestedBlok) => {
-        
         const isHero = nestedBlok?.component == "heroAllBlog";
 
-        if(isHero) {
+        if (isHero) {
           return (
             <header key={nestedBlok._uid}>
               <StoryblokComponent blok={nestedBlok} />
-              <BreadcrumbBlog blok = {nestedBlok}/>
+              <BreadcrumbBlog blok={nestedBlok} />
             </header>
           );
         }
         return <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />;
       })}
+       <div className="mx-auto max-w-7xl px-3 md:px-12 grid lg:grid-cols-3 gap-6 mb-10">
+        {blog[0] &&
+          blog.map((story) => {
+            // console.log("story", story.content.component);
+
+            if (
+              story.content.component !== "page" &&
+              story.tag_list.length === 0
+            ) {
+              return (
+                <BlogTeaser
+                  key={story.uuid}
+                  article={story.content}
+                  slug={story.full_slug}
+                  category={blok.category}
+                />
+              );
+            }
+          })}
+      </div>
     </>
   );
 };

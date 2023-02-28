@@ -50,10 +50,6 @@
   height: 35px;
 }
 
-.related-articles .blog_teaser {
-  background-color: #fff;
-}
-
 @media screen and (min-width:768px) {
   .layout-with-index .article-content {
     flex-basis: 50%;

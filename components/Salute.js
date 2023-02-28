@@ -5,19 +5,21 @@ import {
   StoryblokComponent,
   storyblokEditable,
 } from "@storyblok/react";
+// import HorizontalCardItem from "./HorizontalCardItem";
 import { render } from "storyblok-rich-text-react-renderer";
-import HorizontalCardItem from "./HorizontalCardItem";
+
 import { useState, useEffect } from "react";
 import BreadcrumbBlog from "./BreadcrumbBlog";
 
+const Salute = ({ blok }) => {
+  // console.log("Guide Utili:", blok);
 
-const Breed = ({ blok }) => {
   const [blog, setBlog] = useState([]);
   useEffect(() => {
     const getArticles = async () => {
       const storyblokApi = getStoryblokApi();
       const { data } = await storyblokApi.get(`cdn/stories`, {
-        starts_with: "breed/",
+        starts_with: "salute/",
       });
       setBlog(data.stories);
       // console.log("data ==>", data);
@@ -39,7 +41,7 @@ const Breed = ({ blok }) => {
         }
         return <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />;
       })}
-     <div className="mx-auto max-w-7xl px-3 md:px-12 grid lg:grid-cols-3 gap-6 mb-10">
+      <div className="mx-auto max-w-7xl px-3 md:px-12 grid lg:grid-cols-3 gap-6 mb-10">
         {blog[0] &&
           blog.map((story) => {
             // console.log("story", story.content.component);
@@ -62,4 +64,4 @@ const Breed = ({ blok }) => {
     </>
   );
 };
-export default Breed;
+export default Salute;

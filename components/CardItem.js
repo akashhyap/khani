@@ -3,7 +3,7 @@ import { render } from "storyblok-rich-text-react-renderer";
 import Link from "next/link";
 
 const CardItem = ({ blok }) => {
-  console.log("card item", blok);
+  // console.log("card item", blok);
 
   return (
    

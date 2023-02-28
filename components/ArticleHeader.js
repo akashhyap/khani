@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 const ArticleHeader = ({ blok }) => {
-  console.log("article", blok);
+  // console.log("article header", blok);
 
   const router = useRouter();
   let prevLink = router.asPath.trim("").split("/").slice(1)[0];

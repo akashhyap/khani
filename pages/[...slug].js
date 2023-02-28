@@ -7,8 +7,8 @@ import {
 } from "@storyblok/react";
 
 export default function Page({ story }) {
+  // console.log(story);
   story = useStoryblokState(story);
-
   return (
     <>
       <Head>
@@ -19,12 +19,13 @@ export default function Page({ story }) {
         </title>
       </Head>
 
-      <StoryblokComponent blok={story.content} />
+      <StoryblokComponent blok={story.content} all={story} />
     </>
   );
 }
 
 export async function getStaticProps({ params }) {
+  // console.log("params:", params);
   let slug = params.slug ? params.slug.join("/") : "home";
 
   let sbParams = {

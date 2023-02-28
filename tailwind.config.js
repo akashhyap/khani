@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       colors: {
         eerie: "#1e2121",
+        lavender: "#f6e9e9",
         poppy: {
           50: "rgba(219, 67, 67, 0.1)",
           100: "rgba(219, 67, 67, 0.2)",

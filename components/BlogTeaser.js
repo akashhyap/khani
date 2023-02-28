@@ -9,7 +9,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   year: "numeric",
 });
 
-const BlogTeaser = ({ article, slug }) => {
+const BlogTeaser = ({ article, slug, category }) => {
   // console.log("blog teaser", article);
 
   const isPageComponent = article?.component == "page";
@@ -18,14 +18,14 @@ const BlogTeaser = ({ article, slug }) => {
   return (
     <>
       {!isPageComponent && (
-        <div className="blog_teaser flex flex-col group hover:bg-gray-100 p-5 rounded-xl transition duration-500 ease-in-out">
+        <div className="blog_teaser flex flex-col group bg-gray-100 p-5 rounded-xl transition duration-500 ease-in-out">
           {article?.body.map((item) => {
             switch (item.component) {
               case "featuredImage":
                 return (
                   <figure
                     key={item._uid}
-                    className="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden order-1"
+                    className="relative pt-[50%] sm:pt-[70%] mb-4 rounded-xl overflow-hidden order-1"
                   >
                     <Link href={`/${slug}`} legacyBehavior>
                       <a>
@@ -42,14 +42,18 @@ const BlogTeaser = ({ article, slug }) => {
 
               case "title":
                 return (
-                  <h2
-                    key={item._uid}
-                    className="exclude-index font-poppins mb-0 mt-6 text-2xl text-eerie font-semibold leading-8 tracking-tighter order-2"
-                  >
-                    <Link href={`/${slug}`} legacyBehavior>
-                      <a>{item.title}</a>
-                    </Link>
-                  </h2>
+                  <div key={item._uid} className="order-2">
+                    {category ? (
+                      <Link href={`${category.toLowerCase()}/`} legacyBehavior>
+                        <a className="capitalize bg-lavender text-salmon-900 px-2 py-1 rounded-3xl">{category?.split("-").join(" ")}</a>
+                      </Link>
+                    ) : undefined}
+                    <h2 className="exclude-index font-poppins mb-0 mt-4 text-2xl text-eerie font-semibold leading-8 tracking-tighter">
+                      <Link href={`/${slug}`} legacyBehavior>
+                        <a>{item.title}</a>
+                      </Link>
+                    </h2>
+                  </div>
                 );
                 break;
 

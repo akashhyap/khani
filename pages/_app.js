@@ -10,6 +10,7 @@ import Blog from "../components/Blog";
 import HeroAllBlog from "../components/HeroAllBlog";
 import Alimentazione from "../components/Alimentazione";
 import GuideUtili from "../components/GuideUtili";
+import Salute from "../components/Salute";
 import Breed from "../components/Breed";
 import BlogAuthorInfo from "../components/BlogAuthorInfo";
 import FeaturedImage from "../components/FeaturedImage";
@@ -24,6 +25,11 @@ import TableOfContent from "../components/TableOfContent";
 import HeroStyle from "../components/HeroStyle";
 import ImageOverlayCard from "../components/ImageOverlayCard";
 import CardItem from "../components/CardItem";
+import Category from "../components/Category";
+import ArticleLists from "../components/ArticleLists";
+import Insights from "../components/Insights";
+import InsightsCard from "../components/InsightsCard";
+import HorizontalCardItem from "../components/HorizontalCardItem";
 
 import { useEffect } from "react";
 
@@ -36,6 +42,7 @@ const components = {
   heroAllBlog: HeroAllBlog,
   alimentazione: Alimentazione,
   "guide-utili": GuideUtili,
+  salute: Salute,
   breed: Breed,
   title: Title,
   content: Content,
@@ -50,6 +57,11 @@ const components = {
   "hero-style": HeroStyle,
   "image-overlay-card": ImageOverlayCard,
   "card-item": CardItem,
+  category: Category,
+  "article-lists": ArticleLists,
+  insights: Insights,
+  "insights-card": InsightsCard,
+  HorizontalCardItem: HorizontalCardItem,
 };
 
 storyblokInit({
